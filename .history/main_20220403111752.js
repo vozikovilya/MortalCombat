@@ -1,33 +1,33 @@
 // Task #0
 
 const player1 = {
-    name: 'SCORPION',
-    hp: 50,
-    img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
+    name: 'Scorpion',
+    hp: 1,
+    img: '',
     weapon: ['knife', 'pistol', 'machine'],
     attack() {
         console.log(player1.name + ' ' + 'Fight...')
     }
 };
 const player2 = {
-    name: 'SUB-ZERO',
-    hp: 80,
-    img: 'http://reactmarathon-api.herokuapp.com/assets/subzero.gif',
+    name: 'Kitana',
+    hp: 2,
+    img: '',
     weapon: ['nunchaku', 'sword', 'mace'],
     attack() {
         console.log(player2.name + ' ' + 'Fight...')
     }
 };
 
-// Task #1, Task #2, Task #3*
+// Task #1
 
 
-function createPlayer(elClass, elName, elLife, elScr) {
+function createPlayer(elClass, elName, elLife) {
     const $player = document.createElement('div');
     $player.classList.add(elClass)
     
-    const $arenas = document.querySelector('.arenas');
-    $arenas.appendChild($player);
+    const $root = document.querySelector('.root');
+    $root.appendChild($player);
 
     const $progressbar = document.createElement('div');
     $progressbar.classList.add('progressbar');
@@ -44,16 +44,26 @@ function createPlayer(elClass, elName, elLife, elScr) {
 
     const life = document.createElement('div');
     life.classList.add('life');
-    life.style.width = String(elLife + '%');
+    life.style.width = elLife;
 
     $progressbar.appendChild(name);
     $progressbar.appendChild(life);
     
     const characterImg = document.createElement('img')
     characterImg.classList.add('character')
-    characterImg.src = elScr;
+    characterImg.src = 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif';
     $character.appendChild(characterImg);
+    
 }
 
-createPlayer('player1', player1.name, player1.hp, player1.img);
-createPlayer('player2', player2.name, player2.hp, player2.img);
+createPlayer('player1', 'Scorpion', 50);
+
+// function createPlayer(elClass) {
+//     const $player = document.createElement('div');
+//     $player.classList.add(elClass);
+
+//     const $root = document.querySelector('.root');
+//     $root.appendChild($player);
+// }
+
+// createPlayer('player1');
