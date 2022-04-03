@@ -62,19 +62,18 @@ function chengeHP(player) {
     $playerLife.style.width = player.hp + '%';
 
     if (player.hp <= 0) {
-        $playerLife.style.width = 0 + '%';
-        $randomButton.disabled = true;
-        player.player === 1 ? $arenas.appendChild(playerVictory(player2.name)) : $arenas.appendChild(playerVictory(player1.name));
+        $arenas.appendChild(playerLose(player.name));
+        player.hp = 0 + '%';
     }
 
     console.log($playerLife.style.width)
 }
 
-function playerVictory(name) {
-    const $victoryTitle = createElement('div', 'victoryTitle');
-    $victoryTitle.innerText = name + ' victory';
+function playerLose(name) {
+    const $loseTitle = createElement('div', 'loseTitle');
+    $loseTitle.innerText = name + ' lose';
 
-    return $victoryTitle;
+    return $loseTitle;
 }
 
 $randomButton.addEventListener('click', function() {

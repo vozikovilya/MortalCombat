@@ -62,12 +62,10 @@ function chengeHP(player) {
     $playerLife.style.width = player.hp + '%';
 
     if (player.hp <= 0) {
+        $arenas.appendChild(playerVictory(player.name));
         $playerLife.style.width = 0 + '%';
         $randomButton.disabled = true;
-        player.player === 1 ? $arenas.appendChild(playerVictory(player2.name)) : $arenas.appendChild(playerVictory(player1.name));
-    }
-
-    console.log($playerLife.style.width)
+    };
 }
 
 function playerVictory(name) {

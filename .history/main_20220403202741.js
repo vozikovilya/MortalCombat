@@ -4,7 +4,7 @@ const $randomButton = document.querySelector('.button');
 const player1 = {
     player: 1,
     name: 'SCORPION',
-    hp: 100,
+    hp: 50,
     img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
     weapon: ['knife', 'pistol', 'machine'],
     attack: function(name) {
@@ -14,7 +14,7 @@ const player1 = {
 const player2 = {
     player: 2,
     name: 'SUB-ZERO',
-    hp: 100,
+    hp: 80,
     img: 'http://reactmarathon-api.herokuapp.com/assets/subzero.gif',
     weapon: ['nunchaku', 'sword', 'mace'],
     attack: function(name) {
@@ -55,32 +55,11 @@ function createPlayer(playerObj) {
     return $player;
 }
 
-function chengeHP(player) {
-    const $playerLife = document.querySelector('.player'+ player.player +' .life');
-    const $random = Math.ceil(Math.random() * 20);
-    player.hp -= $random;
-    $playerLife.style.width = player.hp + '%';
-
-    if (player.hp <= 0) {
-        $playerLife.style.width = 0 + '%';
-        $randomButton.disabled = true;
-        player.player === 1 ? $arenas.appendChild(playerVictory(player2.name)) : $arenas.appendChild(playerVictory(player1.name));
-    }
-
-    console.log($playerLife.style.width)
-}
-
-function playerVictory(name) {
-    const $victoryTitle = createElement('div', 'victoryTitle');
-    $victoryTitle.innerText = name + ' victory';
-
-    return $victoryTitle;
-}
-
 $randomButton.addEventListener('click', function() {
-    chengeHP(player1);
-    chengeHP(player2);
-});
+    const $playerLife = document.querySelector('.player2 .life');
+    player2.hp -=20;
+    $playerLife.style.width = player2.hp + '%';
+})
 
 $arenas.appendChild(createPlayer(player1));
 $arenas.appendChild(createPlayer(player2));
