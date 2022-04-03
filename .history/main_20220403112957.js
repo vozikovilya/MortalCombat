@@ -26,8 +26,8 @@ function createPlayer(elClass, elName, elLife, elScr) {
     const $player = document.createElement('div');
     $player.classList.add(elClass)
     
-    const $arenas = document.querySelector('.arenas');
-    $arenas.appendChild($player);
+    const $root = document.querySelector('.root');
+    $root.appendChild($player);
 
     const $progressbar = document.createElement('div');
     $progressbar.classList.add('progressbar');
@@ -53,6 +53,9 @@ function createPlayer(elClass, elName, elLife, elScr) {
     characterImg.classList.add('character')
     characterImg.src = elScr;
     $character.appendChild(characterImg);
+    
+    const $arenas = document.querySelector('.arenas');
+    $arenas.appendChild($root);
 }
 
 createPlayer('player1', player1.name, player1.hp, player1.img);

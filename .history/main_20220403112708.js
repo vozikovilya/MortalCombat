@@ -19,15 +19,15 @@ const player2 = {
     }
 };
 
-// Task #1, Task #2, Task #3*
+// Task #1
 
 
 function createPlayer(elClass, elName, elLife, elScr) {
     const $player = document.createElement('div');
     $player.classList.add(elClass)
     
-    const $arenas = document.querySelector('.arenas');
-    $arenas.appendChild($player);
+    const $root = document.querySelector('.root');
+    $root.appendChild($player);
 
     const $progressbar = document.createElement('div');
     $progressbar.classList.add('progressbar');
@@ -44,7 +44,7 @@ function createPlayer(elClass, elName, elLife, elScr) {
 
     const life = document.createElement('div');
     life.classList.add('life');
-    life.style.width = String(elLife + '%');
+    life.style.width = String(elLife + %);
 
     $progressbar.appendChild(name);
     $progressbar.appendChild(life);
@@ -53,7 +53,7 @@ function createPlayer(elClass, elName, elLife, elScr) {
     characterImg.classList.add('character')
     characterImg.src = elScr;
     $character.appendChild(characterImg);
+    
 }
 
 createPlayer('player1', player1.name, player1.hp, player1.img);
-createPlayer('player2', player2.name, player2.hp, player2.img);
